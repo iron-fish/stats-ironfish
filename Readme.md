@@ -28,7 +28,11 @@ When the This will create a database when the node starts up, a new table `trans
 2) Install [`yarn`](https://classic.yarnpkg.com/lang/en/docs/install)
 3) Install the [ironfish node](https://github.com/iron-fish/ironfish)
 4) Clone this repo `git clone git@github.com:iron-fish/stats-ironfish.git`
-5) Run the ironfish node (with modified log lines as shown above) and stream the output to this program
+
+## Running
+Add logs to the ironfish node that have a `dbTable` key as shown above. Logs without this key will be ignored in the output. Then run the ironfish node (with modified log lines as shown above) and stream the output to this program
 ```
 ironfish start | yarn --cwd ${PATH_TO_THIS_REPO} start ${FOLDER_FOR_SQLDB_OUTPUT}
 ```
+
+The `--cwd` option on yarn will run a yarn command in a specific directory. In this case we want to run it in the directory of this project so we can start the log parser. The only argument taken by the parser is the folder where the database should be created. A new database is created on each run prefixed with the time of creation
