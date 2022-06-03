@@ -2,7 +2,6 @@ import { createInterface } from 'node:readline'
 import { LogArgs, LogsDatabase } from './logsDatabase'
 
 const dbPath = process.argv[2]
-console.log(process.argv)
 
 LogsDatabase.init(dbPath).then((db) => {
   const rl = createInterface({
