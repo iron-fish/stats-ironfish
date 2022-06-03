@@ -30,8 +30,15 @@ When the This will create a database when the node starts up, a new table `trans
 4) Clone this repo `git clone git@github.com:iron-fish/stats-ironfish.git`
 
 ## Running
-Add logs to the ironfish node that have a `dbTable` key as shown above. Logs without this key will be ignored in the output. Then run the ironfish node (with modified log lines as shown above) and stream the output to this program
+Add logs to the ironfish node source code that have a `dbTable` key as shown above. Logs without this key will be ignored in the output.
+
+Set the config parameter on the ironfish node to log to the console as JSON
+```bash
+ironfish config:set jsonLogs true
 ```
+
+Then run the ironfish node (with modified log lines as shown above) and stream the output to this program
+```bash
 ironfish start | yarn --cwd ${PATH_TO_THIS_REPO} start ${FOLDER_FOR_SQLDB_OUTPUT}
 ```
 
