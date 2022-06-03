@@ -27,7 +27,7 @@ When the This will create a database when the node starts up, a new table `trans
 1) Install [`node`](https://nodejs.org/en/download/)
 2) Install [`yarn`](https://classic.yarnpkg.com/lang/en/docs/install)
 3) Install the [ironfish node](https://github.com/iron-fish/ironfish)
-4) Clone this repo
+4) Clone this repo `git clone git@github.com:iron-fish/stats-ironfish.git`
 5) Run the ironfish node (with modified log lines as shown above) and stream the output to this program
 ```
 ironfish start | yarn --cwd ${PATH_TO_THIS_REPO} start ${FOLDER_FOR_SQLDB_OUTPUT}
