@@ -1,0 +1,28 @@
+{
+  "name": "stats-ironfish",
+  "version": "0.1.0",
+  "description": "A utility for consuming logs from the ironfish node",
+  "main": "index.js",
+  "author": "danield9tqh <danield9tqh@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc --outDir dist",
+    "start": "yarn build && node dist/index.js",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "sqlite": "^4.1.1",
+    "sqlite3": "^5.0.8",
+    "typescript": "^4.7.3"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.39",
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
+    "eslint": "^8.0.1",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0"
+  }
+}
