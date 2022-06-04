@@ -32,13 +32,8 @@ export class LogsDatabase {
   }
 
   private async createTableIfNotExists (tableName: string, entry: LogArgs) {
-    const existingTable: string | undefined = await this.db.get(
-      'SELECT name FROM sqlite_master WHERE type=\'table\' AND name=?;',
-      tableName
-    )
-
     // First check that the table does not already exist
-    if (this.createdTables.includes(tableName) || existingTable === tableName) {
+    if (this.createdTables.includes(tableName)) {
       return
     }
 
@@ -58,7 +53,7 @@ export class LogsDatabase {
       .filter((r) => r !== undefined)
 
     const statement =
-       `CREATE TABLE ${tableName}` + `(id INTEGER PRIMARY KEY, ${rows.join(', ')});`
+       `CREATE TABLE IF NOT EXISTS ${tableName}` + `(id INTEGER PRIMARY KEY, ${rows.join(', ')});`
 
     await this.db.run(statement)
     this.createdTables.push(tableName)
